@@ -1,6 +1,7 @@
 ---
 layout: post
 title: First Post
+category: test
 ---
 
 Hello World!

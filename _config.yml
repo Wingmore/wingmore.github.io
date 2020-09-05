@@ -1,10 +1,9 @@
 # Dependencies
-markdown:         redcarpet
-highlighter:      pygments
+markdown:         kramdown
+highlighter:      Rouge
 
 # Permalinks
-permalink:        pretty
-relative_permalinks: true
+permalink: pretty
 
 # Setup
 title:            Blog for me
@@ -13,6 +12,7 @@ description:      'Just a blog for random stuff in elec-eng and religion i guess
 url:              http://hyde.getpoole.com
 baseurl:          /
 
+future:           true
 author:
   name:           'Edwin Sun'
   url:            https://github.com/Wingmore
@@ -24,3 +24,8 @@ version:          idk
 
 github:
   repo:           https://github.com/Wingmore
+
+collections:
+  test:
+    output: true
+    permalink: /:collection/:name 
