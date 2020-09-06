@@ -3,15 +3,11 @@ layout: default
 title: Home
 ---
 
-<h1>Welcome!! </h1>
+<h1>Welcome!!</h1>
 <ul>
     {% for doc in site.test %}
-      <li><a href="{{ doc.url }}">{{ doc.title }}</a></li>
-      {% if doc.category == "test" %}
-        <li><a href="{{ doc.url }}">{{ doc.title }}</a></li>
-      {% endif %} 
+      <li><a href="{{ site.url }}{{ site.baseurl }}{{ doc.url }}">{{ doc.title }}</a></li>
       <!-- <p>{{ doc.content | markdownify }}</p> -->
-
     {% endfor %}
 </ul>
 

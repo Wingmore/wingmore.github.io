@@ -9,7 +9,7 @@ permalink: pretty
 title:            Blog for me
 tagline:          'A Jekyll theme'
 description:      'Just a blog for random stuff in elec-eng and religion i guess'
-url:              http://hyde.getpoole.com
+url:              ""
 baseurl:          /
 
 future:           true
@@ -17,10 +17,10 @@ author:
   name:           'Edwin Sun'
   url:            https://github.com/Wingmore
 
-paginate:         5 what dis
+paginate:         5
 
 # Custom vars
-version:          idk
+version:          yes
 
 github:
   repo:           https://github.com/Wingmore
@@ -28,4 +28,5 @@ github:
 collections:
   test:
     output: true
-    permalink: /:collection/:name 
+    permalink: /:collection/:path/
+    # permalink: pretty
