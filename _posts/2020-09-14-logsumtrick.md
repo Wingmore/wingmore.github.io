@@ -10,7 +10,7 @@ date: 14-Sep-2020
 
 
 
-The logsumexp tick is not explicitly taught, but is incredibly useful in ML applications. When dealing with probabilities, the output may end up being incredibly small (close to zero), leading to underflow. Thus it is often useful to perform calculations on [log probabilities](https://en.wikipedia.org/wiki/Log_probability).
+The logsumexp tick is not explicitly taught, but is incredibly useful in ML applications. When dealing with probabilities, the output may end up being incredibly small (close to zero), leading to **underflow**. Thus it is often useful to perform calculations on [log probabilities](https://en.wikipedia.org/wiki/Log_probability).
 
 Consider the following equation (from an EM Algorithm)
 
@@ -18,7 +18,7 @@ $$
 \gamma_{n k}=\frac{\pi_{k} \mathcal{N}\left(\boldsymbol{x}_{n} \mid \boldsymbol{\mu}_{k}^{\text {old }}, \mathbf{\Sigma}_{k}^{\text {old }}\right)}{\sum_{j=1}^{K} \pi_{j} \mathcal{N}\left(\boldsymbol{x}_{n} \mid \boldsymbol{\mu}_{j}^{\text {old }}, \mathbf{\Sigma}_{j}^{\text {vid }}\right)}
 $$
 
-If we run the code straight up using the formulas described, then it is very likely that we run into an underflow problem as the probabilities may be very, very small. To prevent this issue, we can perform all numerical operations on the log probability, so multiplication becomes addition, and division becomes subtraction. Practically, this drastically improves speed, numerical stability, and simplicity while avoiding the risk of extremely large numbers (overflow) or extremely small numbers (underflow). 
+If we run the code straight up using the formulas described, then it is very likely that we run into an underflow problem as the probabilities may be very, very small. To prevent this issue, we can perform all numerical operations on the **log probability**, so multiplication becomes addition, and division becomes subtraction. Practically, this drastically improves speed, numerical stability, and simplicity while avoiding the risk of extremely large numbers (overflow) or extremely small numbers (underflow). 
 
 So to compute γ_nk, we can take the (natural) log of the RHS, and then raise it to e after all operations. i.e. \\(γ_{nk}=e^{log⁡(γ_{nk})}\\). Taking the log of the RHS  :
 
@@ -32,12 +32,13 @@ For the numerator, we have
 $$
 \begin{aligned}
 \log (N u m) &=\log \pi_{k}+\log \mathcal{N}\left(\boldsymbol{x}_{\boldsymbol{n}} \mid \boldsymbol{\mu}_{\boldsymbol{k}}^{\text {old }}, \mathbf{\Sigma}_{\boldsymbol{k}}^{\text {old }}\right) \\
-&\left.=\log \pi_{k}+\log \frac{1}{\sqrt{(2 \pi)^{d}|\Sigma|}} e^{\left(-\frac{1}{2}(x-\mu)^{7} \Sigma^{-1}(x-\mu)\right.}\right) \\
+&\left.=\log \pi_{k}+\log \frac{1}{\sqrt{(2 \pi)^{d}|\Sigma|}} e^{\left(-\frac{1}{2}(x-\mu)^{7} \Sigma^{-1}(x-\mu)\right.} \\
 &=\log \pi_{k}-\frac{1}{2}\left[\log (2 \pi)+\log (|\Sigma|)+(x-\mu)^{T} \Sigma^{-1}(x-\mu)\right]
 \end{aligned}
 $$
 
-For the denominator, we cannot simply take the log of the sums since N(x_n∣μ_k^"old" ,Σ_k^"old"  ) may be very small and so log(sum(exp(_)) leads to underflow. We can circumvent this problem by using the log-sum-exp trick. For convenience, we write P= N(x_n∣μ_k^"old" ,Σ_k^"old"  ). The denominator becomes
+For the denominator, we cannot simply take the log of the sums since $\mathcal{N}\left(\boldsymbol{x}_{n} \mid \boldsymbol{\mu}_{k}^{\text {old }}, \boldsymbol{\Sigma}_{k}^{\text {pold }}\right)$ may be
+very small and so $\log (\operatorname{sum}(\exp (-))$ leads to underflow. We can circumvent this problem by using the **log-sum-exp trick.** For convenience, we write $P=\mathcal{N}\left(\boldsymbol{x}_{n} \mid \boldsymbol{\mu}_{k}^{\text {old }}, \mathbf{\Sigma}_{k}^{\text {old }}\right)$. The denominator becomes:
 
 $$
 \log (D e n)=\log \left(\sum \pi_{k} P\right)=\log \left(\sum e^{\log \left(\pi_{k} P\right)}\right)=A+\log \left(\sum e^{\log \left(\pi_{k} P\right)-A}\right)
