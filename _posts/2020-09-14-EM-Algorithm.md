@@ -27,9 +27,7 @@ $$
 **M-Step**
 
 $$
-\begin{array}{c}
 \mu_{k}^{n e w}=\frac{1}{N_{k}} \sum_{n=1}^{N} \gamma_{n k} x_{n} \\
 \Sigma_{k}^{n e w}=\frac{1}{N_{k}} \sum_{n=1}^{N} \gamma_{n k}\left(x_{n}-\mu_{k}^{{new}}\right)\left(x_{n}-\mu_{k}^{{new}}\right)^{T} \\
 \pi_{k}^{n e w}=\frac{N_{k}}{N}
-\end{array}
 $$
