@@ -3,21 +3,30 @@ layout: default
 title: Home
 ---
 
+<h1>Welcome!!</h1>
+<ul>
+    {% for doc in site.test %}
+      <li><a href="{{ site.url }}{{ site.baseurl }}{{ doc.url }}">{{ doc.title }}</a></li>
+      <!-- <p>{{ doc.content | markdownify }}</p> -->
+    {% endfor %}
+</ul>
+
 <div class="posts">
   {% for post in paginator.posts %}
   <div class="post">
     <h1 class="post-title">
       <a href="{{ post.url | absolute_url }}">
+      <!-- <a href="{{ post.url }}"> -->
         {{ post.title }}
       </a>
     </h1>
 
     <span class="post-date">{{ post.date | date_to_string }}</span>
-
-    {{ post.content }}
+<!-- {{ post.content }} -->
   </div>
   {% endfor %}
 </div>
+
 
 <div class="pagination">
   {% if paginator.next_page %}

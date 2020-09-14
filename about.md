@@ -4,26 +4,21 @@ title: About
 ---
 
 <p class="message">
-  Hey there! This page is included as an example. Feel free to customize it for your own use upon downloading. Carry on!
+  If anyone is hiring an electrical engineer in Australia, please let me know.
 </p>
 
-In the novel, *The Strange Case of Dr. Jeykll and Mr. Hyde*, Mr. Poole is Dr. Jekyll's virtuous and loyal butler. Similarly, Poole is an upstanding and effective butler that helps you build Jekyll themes. It's made by [@mdo](https://twitter.com/mdo).
+The most fustrating thing I found during my time studying a Bachelors & Master of Electrical Engineering is that professors made everything much harder than it needed to be. Understanding concepts took more and more time, and there were very select individuals who were able to explain things clearly. This blog hopefully changes that, by getting rid of the formality and maths in  engineering, and striving for resources and intuition first in explanations.
 
-There are currently two themes built on Poole:
+I aim to write about things that werent easy to find. So hopefully noone will have to suffer like I have. The fields I'll probably cover (interest areas) are:
+- DSP
+- Machine Learning
+- Data science
+- Religon and Theology
 
-* [Hyde](https://hyde.getpoole.com)
-* [Lanyon](https://lanyon.getpoole.com)
+## Site Info
 
-Learn more and contribute on [GitHub](https://github.com/poole).
+* Hosted on [GitHub Pages](https://pages.github.com)
+* Theme [Hyde](http://hyde.getpoole.com)
+* Built for [Jekyll](http://jekyllrb.com)
+* Coded with [Sublime Text 2](http://sublimetext.com), an amazing code editor
 
-## Setup
-
-Some fun facts about the setup of this project include:
-
-* Built for [Jekyll](https://jekyllrb.com)
-* Developed on GitHub and hosted for free on [GitHub Pages](https://pages.github.com)
-* Coded with [Atom](https://atom.io)
-
-Have questions or suggestions? Feel free to [open an issue on GitHub](https://github.com/poole/issues/new) or [ask me on Twitter](https://twitter.com/mdo).
-
-Thanks for reading!
