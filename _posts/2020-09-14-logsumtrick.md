@@ -33,7 +33,8 @@ $$\begin{aligned}
 &=\log \pi_{k}-\frac{1}{2}\left[\log (2 \pi)+\log (|\Sigma|)+(x-\mu)^{T} \Sigma^{-1}(x-\mu)\right]
 \end{aligned}$$
 
-For the denominator, we cannot simply take the log of the sums since $\mathcal{N}\left(\boldsymbol{x}_{\boldsymbol{n}} \mid \boldsymbol{\mu}_{\boldsymbol{k}}^{\text {old }}, \mathbf{\Sigma}_{\boldsymbol{k}}^{\text {old }}\right)$ may be very small and so $\log (\operatorname{sum}(\exp (-))$ leads to underflow. We can circumvent this problem by using the **log-sum-exp trick.** For convenience, we write $P=\mathcal{N}\left(\boldsymbol{x}_{n} \mid \boldsymbol{\mu}_{k}^{\text {old }}, \mathbf{\Sigma}_{k}^{\text {old }}\right)$. The denominator becomes:
+For the denominator, we cannot simply take the log of the sums since \\(\mathcal{N}\left(\boldsymbol(x_n \mid \mu_k^{old}, \Sigma_k^{old}\right)\\)
+ may be very small and so $\log (\operatorname{sum}(\exp (-))$ leads to underflow. We can circumvent this problem by using the **log-sum-exp trick.** For convenience, we write \\(\mathcal{N}\left(\boldsymbol(x_n \mid \mu_k^{old}, \Sigma_k^{old}\right)\\). The denominator becomes:
 
 $$
 \log (D e n)=\log \left(\sum \pi_{k} P\right)=\log \left(\sum e^{\log \left(\pi_{k} P\right)}\right)=A+\log \left(\sum e^{\log \left(\pi_{k} P\right)-A}\right)
