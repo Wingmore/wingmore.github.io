@@ -18,7 +18,7 @@ author:
   url:            https://github.com/Wingmore
 
 paginate:         5
-remote_theme:     poole/hyde
+remote_theme:     hyde
 
 # Custom vars
 version:          yes
