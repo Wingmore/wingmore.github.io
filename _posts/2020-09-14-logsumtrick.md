@@ -1,5 +1,5 @@
 ---
-layout: page
+layout: post
 title: Avoiding Underflow with the log-sum-exp trick (EM Algorithm)
 category: Machine Learning
 date: 14-Sep-2020
@@ -21,9 +21,9 @@ If we run the code straight up using the formulas described, then it is very lik
 So to compute γ_nk, we can take the (natural) log of the RHS, and then raise it to e after all operations. i.e. \\(γ_{nk}=e^{log⁡(γ_{nk})}\\). Taking the log of the RHS  :
 
 
-$$
+$
 \log \frac{\pi_{k} \mathcal{N}\left(\boldsymbol{x}_{n} \mid \boldsymbol{\mu}_{k}^{\text {old }}, \mathbf{\Sigma}_{k}^{\text {obd }}\right)}{\sum_{j=1}^{K} \pi_{j} \mathcal{N}\left(\boldsymbol{x}_{n} \mid \boldsymbol{\mu}_{j}^{\text {old }}, \mathbf{\Sigma}_{j}^{\text {old }}\right)}=\log (N u m)-\log (D e n)
-$$
+$
 
 For the numerator, we have
 
@@ -33,8 +33,7 @@ $$\begin{aligned}
 &=\log \pi_{k}-\frac{1}{2}\left[\log (2 \pi)+\log (|\Sigma|)+(x-\mu)^{T} \Sigma^{-1}(x-\mu)\right]
 \end{aligned}$$
 
-For the denominator, we cannot simply take the log of the sums since \\(\mathcal{N}\left(\boldsymbol{x}_{n} \mid \boldsymbol{\mu}_{k}^{\text {old }}, \boldsymbol{\Sigma}_{k}^{\text {pold }}\right)\\) may be
-very small and so $\log (\operatorname{sum}(\exp (-))$ leads to underflow. We can circumvent this problem by using the **log-sum-exp trick.** For convenience, we write $P=\mathcal{N}\left(\boldsymbol{x}_{n} \mid \boldsymbol{\mu}_{k}^{\text {old }}, \mathbf{\Sigma}_{k}^{\text {old }}\right)$. The denominator becomes:
+For the denominator, we cannot simply take the log of the sums since $\mathcal{N}\left(\boldsymbol{x}_{n} \mid \boldsymbol{\mu}_{k}^{\text {old }}, \boldsymbol{\Sigma}_{k}^{\text {pold }}\right)$ may be very small and so $\log (\operatorname{sum}(\exp (-))$ leads to underflow. We can circumvent this problem by using the **log-sum-exp trick.** For convenience, we write $P=\mathcal{N}\left(\boldsymbol{x}_{n} \mid \boldsymbol{\mu}_{k}^{\text {old }}, \mathbf{\Sigma}_{k}^{\text {old }}\right)$. The denominator becomes:
 
 $$
 \log (D e n)=\log \left(\sum \pi_{k} P\right)=\log \left(\sum e^{\log \left(\pi_{k} P\right)}\right)=A+\log \left(\sum e^{\log \left(\pi_{k} P\right)-A}\right)
