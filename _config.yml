@@ -8,7 +8,7 @@ permalink: pretty
 # Setup
 title:            Yet another blog
 tagline:          'A Jekyll theme'
-description:      'Just a blog for random stuff in elec-eng and religion i guess'
+description:      'Just a blog for random stuff in elec-eng, machine learning, DSP and religion i guess'
 url:              ""
 baseurl:          /
 
@@ -17,17 +17,10 @@ author:
   name:           'Edwin Sun'
   url:            https://github.com/Wingmore
 
-paginate:         5
-remote_theme:     poole/hyde
+# Gems
+plugins:
+  - jekyll-paginate
+  - jekyll-gist
 
 # Custom vars
-version:          yes
-
-github:
-  repo:           https://github.com/Wingmore
-
-collections:
-  test:
-    output: true
-    permalink: /:collection/:path/
-    # permalink: pretty
+version:          3.0.0
