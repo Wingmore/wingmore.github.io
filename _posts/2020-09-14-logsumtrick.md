@@ -4,21 +4,30 @@ title: Avoiding Underflow with the log-sum-exp trick
 category: Machine Learning
 date: 14-Sep-2020
 ---
+<script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_CHTML'></script>
 
-The logsumtrick is a very com
+The logsumexp tick is not explicitly taught, but is incredibly useful in ML applications. When dealing with probabilities, the output may end up being incredibly small (close to zero), leading to underflow. Thus it is often useful to perform calculations on [log probabilities](https://en.wikipedia.org/wiki/Log_probability).
 
-Consider the following equation (used in the Expectation Maximization (EM) Algorithm)
+Consider the following equation (from an EM Algorithm)
 
-$$\gamma_{n k}=\frac{\pi_{k} \mathcal{N}\left(\boldsymbol{x}_{n} \mid \boldsymbol{\mu}_{k}^{\text {old }}, \mathbf{\Sigma}_{k}^{\text {old }}\right)}{\sum_{j=1}^{K} \pi_{j} \mathcal{N}\left(\boldsymbol{x}_{n} \mid \boldsymbol{\mu}_{j}^{\text {old }}, \mathbf{\Sigma}_{j}^{\text {vid }}\right)}$$
+$$\gamma_{n k}=\frac{\pi_{k} \mathcal{N}\left(\boldsymbol{x}_{n} \mid \boldsymbol{\mu}_{k}^{\text {old }}, \mathbf{\Sigma}_{k}^{\text {old }}\right)}{\sum_{j=1}^{K} \pi_{j} \mathcal{N}\left(\boldsymbol{x}_{n} \mid \boldsymbol{\mu}_{j}^{\text {old }}, \mathbf{\Sigma}_{j}^{\text {vid }}\right)}
+$$
 
 If we run the code straight up using the formulas described, then it is very likely that we run into an underflow problem as the probabilities may be very, very small. To prevent this issue, we can perform all numerical operations on the log probability, as this is much more practical for computation. In log space, multiplication becomes addition, and division becomes subtraction. This drastically improves speed, numerical stability, and simplicity while avoiding the risk of extremely large numbers (overflow) or extremely small numbers (underflow). 
 
-So to compute γ_nk, we can take the (natural) log of the RHS, and then raise it to e after all operations. i.e. $γ_nk=e^(log⁡(γ_nk))$. Taking the log of the RHS  :
+So to compute γ_nk, we can take the (natural) log of the RHS, and then raise it to e after all operations. i.e. \\(γ_{nk}=e^{log⁡(γ_{nk})}\\). Taking the log of the RHS  :
+
 
 $$
 \log \frac{\pi_{k} \mathcal{N}\left(\boldsymbol{x}_{n} \mid \boldsymbol{\mu}_{k}^{\text {old }}, \mathbf{\Sigma}_{k}^{\text {obd }}\right)}{\sum_{j=1}^{K} \pi_{j} \mathcal{N}\left(\boldsymbol{x}_{n} \mid \boldsymbol{\mu}_{j}^{\text {old }}, \mathbf{\Sigma}_{j}^{\text {old }}\right)}=\log (N u m)-\log (D e n)
 $$
+
+$$
+\log \frac{\pi_{k} \mathcal{N}\left(\boldsymbol{x}_{n} \mid \boldsymbol{\mu}_{k}^{\text {old }}, \mathbf{\Sigma}_{k}^{\text {obd }}\right)}{\sum_{j=1}^{K} \pi_{j} \mathcal{N}\left(\boldsymbol{x}_{n} \mid \boldsymbol{\mu}_{j}^{\text {old }}, \mathbf{\Sigma}_{j}^{\text {old }}\right)}=\log (N u m)-\log (D e n)
+$$
+
 For the numerator, we have
+
 $$
 \begin{aligned}
 \log (N u m) &=\log \pi_{k}+\log \mathcal{N}\left(\boldsymbol{x}_{\boldsymbol{n}} \mid \boldsymbol{\mu}_{\boldsymbol{k}}^{\text {old }}, \mathbf{\Sigma}_{\boldsymbol{k}}^{\text {old }}\right) \\
@@ -26,3 +35,19 @@ $$
 &=\log \pi_{k}-\frac{1}{2}\left[\log (2 \pi)+\log (|\Sigma|)+(x-\mu)^{T} \Sigma^{-1}(x-\mu)\right]
 \end{aligned}
 $$
+
+For the denominator, we cannot simply take the log of the sums since N(x_n∣μ_k^"old" ,Σ_k^"old"  ) may be very small and so log(sum(exp(_)) leads to underflow. We can circumvent this problem by using the log-sum-exp trick. For convenience, we write P= N(x_n∣μ_k^"old" ,Σ_k^"old"  ). The denominator becomes
+
+$$
+\log (D e n)=\log \left(\sum \pi_{k} P\right)=\log \left(\sum e^{\log \left(\pi_{k} P\right)}\right)=A+\log \left(\sum e^{\log \left(\pi_{k} P\right)-A}\right)
+$$
+
+To explain, we first convert the denominator into a log-sum-exp form: \\(log \left(\sum e^{x}\right),\\)and then we apply the log-sum-exp trick, which lets us write \\(\log \left(\sum e^{a}\right)\\) as \\(A+\log \left(\sum e^{a-A}\right)\\) . By setting the
+variable $A$ as the max value in the sequence $a,$ we can prevent underflow since if all the numbers
+in $x$ are very large negatively $($ e.g $a=[-222,-255]),$ then subtracting the maximum will bring it
+back close to $0(a-A=[0,3])$ which lets us perform log and exponential operations. If we do not subtract by A first, then $e^{a} \rightarrow 0,$ and $\log e^{a} \rightarrow$ inf instead of $a$.
+
+
+Resources
+- (example)https://stats.stackexchange.com/questions/105602/example-of-how-the-log-sum-exp-trick-works-in-naive-bayes
+- (proof) https://www.xarg.org/2016/06/the-log-sum-exp-trick-in-machine-learning/
