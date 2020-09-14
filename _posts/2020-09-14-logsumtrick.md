@@ -33,7 +33,7 @@ $$\begin{aligned}
 &=\log \pi_{k}-\frac{1}{2}\left[\log (2 \pi)+\log (|\Sigma|)+(x-\mu)^{T} \Sigma^{-1}(x-\mu)\right]
 \end{aligned}$$
 
-For the denominator, we cannot simply take the log of the sums since $\mathcal{N}\left(\boldsymbol{x}_{n} \mid \boldsymbol{\mu}_{k}^{\text {old }}, \boldsymbol{\Sigma}_{k}^{\text {pold }}\right)$ may be
+For the denominator, we cannot simply take the log of the sums since \\(\mathcal{N}\left(\boldsymbol{x}_{n} \mid \boldsymbol{\mu}_{k}^{\text {old }}, \boldsymbol{\Sigma}_{k}^{\text {pold }}\right)\\) may be
 very small and so $\log (\operatorname{sum}(\exp (-))$ leads to underflow. We can circumvent this problem by using the **log-sum-exp trick.** For convenience, we write $P=\mathcal{N}\left(\boldsymbol{x}_{n} \mid \boldsymbol{\mu}_{k}^{\text {old }}, \mathbf{\Sigma}_{k}^{\text {old }}\right)$. The denominator becomes:
 
 $$
@@ -42,10 +42,10 @@ $$
 
 To explain, we first convert the denominator into a log-sum-exp form:\\(log \left(\sum e^{x}\right)\\), and then we apply the log-sum-exp trick, which lets us write \\(\log \left(\sum e^{a}\right)\\) as \\(A+\log \left(\sum e^{a-A}\right)\\). By setting the
 variable $A$ as the max value in the sequence $a,$ we can prevent underflow since if all the numbers
-in $x$ are very large negatively $($ e.g $a=[-222,-255]),$ then subtracting the maximum will bring it back close to $0(a-A=[0,3])$ which lets us perform log and exponential operations. If we do not subtract by A first, then $e^{a} \rightarrow 0,$ and $\log e^{a} \rightarrow$ inf instead of $a$.
+in $x$ are very large negatively $($ e.g $a=[-222,-255]),$ then subtracting the maximum will bring it back close to $0(a-A=[0,3])$ which lets us perform log and exponential operations. If we do not subtract by A first, then $e^{a} \rightarrow 0,$ and $\log e^{a} \rightarrow inf$  instead of $a$.
 
 
 Resources
-- (example)https://stats.stackexchange.com/questions/105602/example-of-how-the-log-sum-exp-trick-works-in-naive-bayes
-- (proof) https://www.xarg.org/2016/06/the-log-sum-exp-trick-in-machine-learning/
+- (example) [https://stats.stackexchange.com/questions/105602/example-of-how-the-log-sum-exp-trick-works-in-naive-bayes](https://stats.stackexchange.com/questions/105602/example-of-how-the-log-sum-exp-trick-works-in-naive-bayes)
+- (proof) [https://www.xarg.org/2016/06/the-log-sum-exp-trick-in-machine-learning/](https://www.xarg.org/2016/06/the-log-sum-exp-trick-in-machine-learning/)
 
