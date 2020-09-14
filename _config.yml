@@ -1,20 +1,33 @@
+# Dependencies
+markdown:         kramdown
+highlighter:      Rouge
+
+# Permalinks
+permalink: pretty
+
 # Setup
-title:            Hyde
+title:            Yet another blog
 tagline:          'A Jekyll theme'
-description:      'A brazen two-column <a href="https://jekyllrb.com" target="_blank">Jekyll</a> theme that pairs a prominent sidebar with uncomplicated content. Made by <a href="https://twitter.com/mdo" target="_blank">@mdo</a>.'
-url:              https://hyde.getpoole.com
-baseurl:          ''
-paginate:         5
+description:      'Just a blog for random stuff in elec-eng and religion i guess'
+url:              ""
+baseurl:          /
 
-# About and contact
+future:           true
 author:
-  name:           'Mark Otto'
-  url:            https://twitter.com/mdo
+  name:           'Edwin Sun'
+  url:            https://github.com/Wingmore
 
-# Gems
-plugins:
-  - jekyll-paginate
-  - jekyll-gist
+paginate:         5
+remote_theme:     hyde
 
 # Custom vars
-version:          3.0.0
+version:          yes
+
+github:
+  repo:           https://github.com/Wingmore
+
+collections:
+  test:
+    output: true
+    permalink: /:collection/:path/
+    # permalink: pretty
