@@ -2,9 +2,9 @@
 layout: page
 title: About me
 ---
-I am an electrical engineering student (in my final year at UNSW, Australia). I am also desperately unemployed and not by choice. So if anyone has any offers to share, please throw me an email at edwin.sun486@gmail.com
+I am an electrical engineering student (in my final year at UNSW, Australia). I am also desperately unemployed and not by choice. So if anyone has any offers for work, please throw me an email at edwin.sun486@gmail.com
 <p class="message">
-  If anyone is hiring an electrical engineer in Australia, please let me know.
+  LIFE SUCKS EVERYTHING SUCKS
 </p>
 
 ## Site Rationale
