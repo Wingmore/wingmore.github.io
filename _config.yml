@@ -10,7 +10,7 @@ title:            Yet another blog
 tagline:          'A Jekyll theme'
 description:      'Just a blog for random stuff in elec-eng and religion i guess'
 url:              ""
-baseurl:          /
+baseurl:          ""
 
 future:           true
 author:
@@ -31,3 +31,6 @@ collections:
     output: true
     permalink: /:collection/:path/
     # permalink: pretty
+
+kramdown:
+  math_engine: mathjax
