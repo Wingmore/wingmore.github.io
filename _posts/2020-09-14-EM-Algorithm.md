@@ -65,10 +65,7 @@ $$
 $$
 
 $$
-\Sigma_{k}^{new}=\frac{1}{N_{k}} \sum_{n=1}^{N} 
-$$
-$$
-\gamma_{nk}\left(x_{n}-\mu_{k}^{new}\right)\left(x_{n}-\mu_{k}^{new}\right)^{T}
+\Sigma_{k}^{new}=\frac{1}{N_{k}} \sum_{n=1}^{N}\gamma_{nk}\left(x_{n}-\mu_{k}^{new}\right)\left(x_{n}-\mu_{k}^{new}\right)^{T}
 $$
 
 $$

@@ -10,14 +10,19 @@ date: 19-Sep-2020
 
 This post is just some more additional information from my [previous one]((2020-09-14-EM-Algorithm.md)) (read that one first). This covers some debugging tips and other things to be aware of.
 
-**Underflow**
+### **Underflow**
 
 Firstly, in MATLAB at least, you may run into some underflow problems like I did (e.g. `badly conditioned matrix` or some division by zero error). One way to allieviate this is to use something called the log-sum-exp trick. I have a post [here](2020-09-14-logsumtrick.md) that explains the trick in more detail. Basically, we just perform all our calculations on the log probability and then raise it to $e$ after we're done. 
 
-**Convergence**
+### **Convergence**
 
 Sometimes, just for sanity's sake, we want to try plot the convergence:
-[![convergence]({{site.url}}\pics\convergence.JPG)]
+![convergence]({{site.url}}\pics\convergence.JPG)
+Clearly, the log likelihood (y-axis) converges after 10 or so iterations.
+
+
+**Code**
+
 ```Matlab
 For each iteration t {
     A = max(gam,[],1);  %max for every point
