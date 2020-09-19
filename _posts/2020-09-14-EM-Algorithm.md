@@ -40,6 +40,7 @@ end
 **E-Step**
 
 The first step is the Expectation step. 
+
 $$
 \gamma_{n k}=\frac{\pi_{k} \mathcal{N}\left(x_{n} \mid \mu_{k}^{\text {old }}, \Sigma_{k}^{\text {old }}\right)}{\sum_{j=1}^{K} \pi_{j} \mathcal{N}\left(x_{n} \mid \mu_{j}^{\text {old }}, \Sigma_{j}^{\text {old }}\right)}
 $$
@@ -58,12 +59,15 @@ gam = gam./sum(gam);
 **M-Step**
 
 After the E-step, we update the means, covariances, and weights:
+
 $$
 \mu_{k}^{n e w}=\frac{1}{N_{k}} \sum_{n=1}^{N} \gamma_{n k} x_{n} 
 $$
+
 $$
-\Sigma_{k}^{n e w}=\frac{1}{N_{k}} \sum_{n=1}^{N} \gamma_{n k}\left(x_{n}-\mu_{k}^{{new}}\right)\left(x_{n}-\mu_{k}^{{new}}\right)^{T}
+\Sigma_{k}^{new}=\frac{1}{N_{k}} \sum_{n=1}^{N} \gamma_{nk}\left(x_{n}-\mu_{k}^{new}\right)\left(x_{n}-\mu_{k}^{new}\right)^{T}
 $$
+
 $$
 \pi_{k}^{n e w}=\frac{N_{k}}{N}
 $$
@@ -99,15 +103,15 @@ Finally we can simply iterate E-step, and then M-step until it converges. Some t
 
 
 
-# Resources
+## Resources
 - (2D blog Example) [https://medium.com/@jonathan_hui/machine-learning-expectation-maximization-algorithm-em-2e954cb76959](https://medium.com/@jonathan_hui/machine-learning-expectation-maximization-algorithm-em-2e954cb76959)
 - Code
 
-Videos
+**Videos**
 - StatQuest: Maximum Likelihood (for proof) [https://www.youtube.com/watch?v=XepXtl9YKwc](https://www.youtube.com/watch?v=XepXtl9YKwc) 
 
 - EM Algorithm (should watch for intuition) [https://www.youtube.com/watch?v=REypj2sy_5U&ab_channel=VictorLavrenko](https://www.youtube.com/watch?v=REypj2sy_5U&ab_channel=VictorLavrenko)
 
-Python Code (quite long)
+**Python Code (quite long)**
 - [https://people.duke.edu/~ccc14/sta-663/EMAlgorithm.html](https://people.duke.edu/~ccc14/sta-663/EMAlgorithm.html)
 - [https://www.python-course.eu/expectation_maximization_and_gaussian_mixture_models.php](https://www.python-course.eu/expectation_maximization_and_gaussian_mixture_models.php)

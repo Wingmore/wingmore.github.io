@@ -42,11 +42,11 @@ $$
 \log (D e n)=\log \left(\sum \pi_{k} P\right)=\log \left(\sum e^{\log \left(\pi_{k} P\right)}\right)=A+\log \left(\sum e^{\log \left(\pi_{k} P\right)-A}\right)
 $$
 
-To explain, we first convert the denominator into a log-sum-exp form:\\(log \left(\sum e^{x}\right)\\), and then we apply the log-sum-exp trick, which lets us write \\(\log \left(\sum e^{a}\right)\\) as \\(A+\log \left(\sum e^{a-A}\right)\\). By setting the
+**Explanation**: we first convert the denominator into a log-sum-exp form:\\(log \left(\sum e^{x}\right)\\), and then we apply the **log-sum-exp trick**, which lets us write \\(\log \left(\sum e^{a}\right)\\) as \\(A+\log \left(\sum e^{a-A}\right)\\). By setting the
 variable $A$ as the max value in the sequence $a,$ we can prevent underflow since if all the numbers
 in $x$ are very large negatively $($ e.g $a=[-222,-255]),$ then subtracting the maximum will bring it back close to $0(a-A=[0,3])$ which lets us perform log and exponential operations. If we do not subtract by A first, then $e^{a} \rightarrow 0,$ and $\log e^{a} \rightarrow inf$  instead of $a$.
 
-# Code for the E-Step
+## Code for the E-Step
 This is the log calculation for the E-step. The original code is found in [this](2020-09-14-EM-Algorithm.md) post for comparison (does not use any log).
 
 ```Matlab
