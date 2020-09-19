@@ -11,9 +11,7 @@ date: 14-Sep-2020
 The EM Algorithm is a unsupervised clustering method that tries to fit gaussian mixture models (GMM) to data. The important formulas are shown in this post, with the algorithm mainly iterating between two steps: the Expectation step and the Maximization step. I wont go into the proof, but I will try to explain what each part of the formulae does. If you want to know more, check out the links at the bottom - they expand on a great deal more than I do.
 
 ## When to use EM?
-Say we have some unlabelled data, and we want to fit some parametric model to it. Usually, we want to find some **maximum likelihood** estimation for the data. However, we may have some incomplete/unobserved variables which may screw things up.
-
-Also see [this](https://stats.stackexchange.com/questions/326343/why-use-em-algorithm-instead-of-just-plain-old-ml-for-mixture-model) answer for more information.
+Say we have some unlabelled data, and we want to fit some parametric model to it. Usually, we want to find some **maximum likelihood** estimation for the data. However, we may have some incomplete/unobserved variables which may screw things up. Also see [this](https://stats.stackexchange.com/questions/326343/why-use-em-algorithm-instead-of-just-plain-old-ml-for-mixture-model) answer for more information.
 
 As for how the algorithm actually works, this nice gif from [Wikipedia](https://en.wikipedia.org/wiki/Expectation%E2%80%93maximization_algorithm) quite nicely shows the iterative steps:
 [![EM Algorithm](https://upload.wikimedia.org/wikipedia/commons/6/69/EM_Clustering_of_Old_Faithful_data.gif)](https://upload.wikimedia.org/wikipedia/commons/6/69/EM_Clustering_of_Old_Faithful_data.gif)
@@ -61,8 +59,12 @@ gam = gam./sum(gam);
 
 After the E-step, we update the means, covariances, and weights:
 $$
-\mu_{k}^{n e w}=\frac{1}{N_{k}} \sum_{n=1}^{N} \gamma_{n k} x_{n} \\
-\Sigma_{k}^{n e w}=\frac{1}{N_{k}} \sum_{n=1}^{N} \gamma_{n k}\left(x_{n}-\mu_{k}^{{new}}\right)\left(x_{n}-\mu_{k}^{{new}}\right)^{T} \\
+\mu_{k}^{n e w}=\frac{1}{N_{k}} \sum_{n=1}^{N} \gamma_{n k} x_{n} 
+$$
+$$
+\Sigma_{k}^{n e w}=\frac{1}{N_{k}} \sum_{n=1}^{N} \gamma_{n k}\left(x_{n}-\mu_{k}^{{new}}\right)\left(x_{n}-\mu_{k}^{{new}}\right)^{T}
+$$
+$$
 \pi_{k}^{n e w}=\frac{N_{k}}{N}
 $$
 
@@ -93,7 +95,7 @@ end
 pis = pis./n;
 ```
 
-Finally we can simply iterate E-step, and then M-step until it converges.
+Finally we can simply iterate E-step, and then M-step until it converges. Some things to note however, is that you may run into underflow problems if the probablity becomes too small. See [my logsumtrick post](2020-09-14-logsumtrick.md) for a way to alleviate it. You can also check convergence by plotting the log likelihood (see the next post [here](2020-09-19-EM-Auxillary.md))
 
 
 
