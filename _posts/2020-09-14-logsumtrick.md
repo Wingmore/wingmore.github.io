@@ -8,7 +8,7 @@ date: 14-Sep-2020
   src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-MML-AM_CHTML">
 </script>
 
-Edit 19-Sep-20: Added Code
+*Edit 19-Sep-20: Added Code*
 
 The logsumexp tick is not explicitly taught, but is incredibly useful in ML applications. When dealing with probabilities, the output may end up being incredibly small (close to zero), leading to **underflow**. Thus it is often useful to perform calculations on [log probabilities](https://en.wikipedia.org/wiki/Log_probability).
 

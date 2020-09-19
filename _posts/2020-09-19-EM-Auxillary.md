@@ -17,7 +17,7 @@ Firstly, in MATLAB at least, you may run into some underflow problems like I did
 **Convergence**
 
 Sometimes, just for sanity's sake, we want to try plot the convergence:
-[![convergence]({{site.url}}/pics/convergence.JPG])]
+[![convergence]({{site.url}}\pics\convergence.JPG)]
 ```Matlab
 For each iteration t {
     A = max(gam,[],1);  %max for every point
@@ -25,4 +25,4 @@ For each iteration t {
     llh(t) = sum(T)/n; % loglikelihood
 }
 ```
-Not that the above also uses the log-sum-exp trick. We can simply sum over all the $\gamma_k$ instead.
+Note that the above also uses the log-sum-exp trick. We can simply sum over all the $\gamma_k$ instead.
