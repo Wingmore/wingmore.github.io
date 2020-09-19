@@ -9,7 +9,8 @@ permalink: pretty
 title:            Yet another blog
 tagline:          'A Jekyll theme'
 description:      'Just a blog for random stuff in elec-eng and religion i guess'
-url:              ""
+url:              "https://wingmore.github.io/"
+# url:              "" # For localhost
 baseurl:          /
 
 future:           true
