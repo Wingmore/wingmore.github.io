@@ -65,7 +65,7 @@ P(X \approx r) &=S A_{n-\text {sphere}} \times \rho(x) \\
 
 To see why this is the case, we consider the 2D gaussian.  From the figure below, we see some points representative of the gaussian pdf.
 
-![circle](../pics/circles.jpg)
+![circle]({{site.url}}\pics\circles.jpg)
 
 To determine the probability of finding a point between the two circles, we calculate the integral
 
@@ -135,8 +135,11 @@ xlabel('radius')
 ```
 
 
-[^1]: The surface area of a n-sphere is found by differentiate the volume w.r.t. radius $r$. Volume can be found from google.
 
 ## Resources
 - [1] [A Few Useful Things to Know about Machine Learning](https://homes.cs.washington.edu/~pedrod/papers/cacm12.pdf)
-- https://stats.stackexchange.com/questions/419412/why-is-gaussian-distribution-on-high-dimensional-space-like-a-soap-bubble 
+- More explanation (no formula though) [https://stats.stackexchange.com/questions/419412/why-is-gaussian-distribution-on-high-dimensional-space-like-a-soap-bubble](https://stats.stackexchange.com/questions/419412/why-is-gaussian-distribution-on-high-dimensional-space-like-a-soap-bubble )
+
+
+## Footnotes 
+[^1]: The surface area of a n-sphere is found by differentiate the volume w.r.t. radius $r$. Volume can be found from google.
