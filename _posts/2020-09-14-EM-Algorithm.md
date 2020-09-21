@@ -1,6 +1,6 @@
 ---
 layout: post
-title: EM Algorithm in Matlab
+title: EM Algorithm in Matlab I
 category: Machine Learning
 date: 14-Sep-2020
 ---

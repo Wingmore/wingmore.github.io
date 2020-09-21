@@ -1,6 +1,6 @@
 ---
 layout: post
-title: EM Algorithm in Matlab (Auxillary Information and Code)
+title: EM Algorithm in Matlab (Auxillary Information and Code) III
 category: Machine Learning
 date: 19-Sep-2020
 ---

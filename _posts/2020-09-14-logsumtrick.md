@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Avoiding Underflow with the log-sum-exp trick (EM Algorithm)
+title: Avoiding Underflow with the log-sum-exp trick (EM Algorithm) II
 category: Machine Learning
 date: 14-Sep-2020
 ---
