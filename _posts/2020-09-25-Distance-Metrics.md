@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Why (and when) is Euclidean Distance bad? 
-category: Bible
+category: Machine Learning
 date: 22-Sep-2020
 ---
 

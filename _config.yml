@@ -6,9 +6,9 @@ highlighter:      Rouge
 permalink: pretty
 
 # Setup
-title:            Yet another blog
+title:            Hire me please
 tagline:          'A Jekyll theme'
-description:      'Just a blog for random stuff in elec-eng and religion i guess'
+description:      'Just a blog for some AI, machine learning and religion'
 url:              "https://wingmore.github.io"
 # url:              "" # For localhost
 baseurl:          /
